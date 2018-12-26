@@ -8,3 +8,6 @@ python:
 
 # Don't build any extra formats
 formats: []
+
+conda:
+  file: doc/environment.yml
