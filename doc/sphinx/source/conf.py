@@ -24,6 +24,10 @@
 # From https://breathe.readthedocs.io/en/latest/readthedocs.html
 import subprocess, os
 
+read_the_docs_build = os.environ.get('READTHEDOCS', None) == 'True'
+if read_the_docs_build:
+    subprocess.call('cd ../..; doxygen tsip.doxyfile', shell=True)
+
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -171,8 +175,3 @@ texinfo_documents = [
      author, 'SnowcapTsip', 'One line description of project.',
      'Miscellaneous'),
 ]
-
-# From https://breathe.readthedocs.io/en/latest/readthedocs.html
-read_the_docs_build = os.environ.get('READTHEDOCS', None) == 'True'
-if read_the_docs_build:
-    subprocess.call('doxygen doc/tsip.doxyfile', shell=True)
