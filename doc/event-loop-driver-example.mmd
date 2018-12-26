@@ -1,0 +1,20 @@
+sequenceDiagram
+    Main->>EventLoop: Init
+    loop thread
+        EventLoop->>EventLoop: Listen
+    end
+    Main->>EventLoop: RegisterCallback(event1)
+    Main->>Driver1: Init
+    loop thread
+        Driver1->>Driver1: i2c
+    end
+    Main->>EventLoop: RegisterCallback(event2)
+    Main->>Driver2: Init
+    loop thread
+        Driver2->>Driver2: i2c
+    end
+    Driver1->>EventLoop: Post(event1)
+    EventLoop-->>Main: callback(type1)
+    Driver2->>EventLoop: Post(event2)
+    EventLoop-->>Main: callback(type2)
+    
