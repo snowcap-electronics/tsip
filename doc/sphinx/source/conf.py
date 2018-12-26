@@ -38,6 +38,7 @@ if read_the_docs_build:
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = ['sphinx.ext.coverage',
+              'sphinxcontrib.mermaid',
               'sphinx.ext.githubpages',
               'breathe']
 
