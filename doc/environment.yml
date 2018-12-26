@@ -1,7 +1,7 @@
 name: tsip
 
 channels:
-  - conda-forge
+  - conda
 
 dependencies:
   - breathe
