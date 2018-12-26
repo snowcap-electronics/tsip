@@ -3,7 +3,7 @@ build:
 
 python:
   version: 3.6
-  setup_py_install: true
+  setup_py_install: false
   use_system_site_packages: true
 
 # Don't build any extra formats
