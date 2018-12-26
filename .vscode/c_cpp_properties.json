@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/include/",
+                "${workspaceFolder}/build/zephyr/include/generated/",
+                "${workspaceFolder}/zephyr/include/",
+                "${workspaceFolder}/zephyr/arch/x86/include/",
+                "${workspaceFolder}/zephyr/arch/posix/include/",
+                "${workspaceFolder}/zephyr/arch/posix/soc/inf_clock/",
+                "${workspaceFolder}/zephyr/include/arch/posix/",
+                "${workspaceFolder}/zephyr/boards/posix/native_posix/"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang++-5.0",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}
