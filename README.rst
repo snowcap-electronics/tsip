@@ -1,11 +1,9 @@
 .. image:: https://readthedocs.org/projects/tsip/badge/?version=latest
-:target: https://tsip.readthedocs.io/en/latest/?badge=latest
-:alt: Documentation Status
-
 
 Snowcap Tsip
 ############
 
+Please see the project documentation in `Read the docs <http://tsip.readthedocs.io/>`_.
 
 Overview
 ********
