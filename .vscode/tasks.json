@@ -10,7 +10,7 @@
     "tasks": [
         {
             "label": "cmake",
-            "command": "cmake -DBOARD=native_posix ..",
+            "command": "cmake ..",
             "type": "shell",
             "presentation": {
                 "reveal": "always"
