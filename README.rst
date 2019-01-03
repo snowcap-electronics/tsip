@@ -1,4 +1,7 @@
 .. image:: https://readthedocs.org/projects/tsip/badge/?version=latest
+    :target: https://tsip.readthedocs.org/
+.. image:: https://travis-ci.org/snowcap-electronics/tsip.svg?branch=master
+    :target: https://travis-ci.org/snowcap-electronics/tsip
 
 Snowcap Tsip
 ############
