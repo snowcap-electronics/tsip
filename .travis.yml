@@ -13,6 +13,6 @@ branches:
     - master
 
 before_script:
-  - sudo apt-get install -y --force-yes gcc-arm-none-eabi
+  - sudo apt-get install -y --force-yes gcc-arm-none-eabi device-tree-compiler python3-pyelftools
 
 script: ./test-compile-all.sh
