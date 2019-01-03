@@ -1,0 +1,18 @@
+language: c
+
+notifications:
+  irc:
+    channels:
+      - "chat.freenode.net#snowcap"
+    on_success: change
+    use_notice: true
+    skip_join: true
+
+branches:
+  only:
+    - master
+
+before_script:
+  - sudo apt-get install -y --force-yes gcc-arm-none-eabi
+
+script: ./test-compile-all.sh
