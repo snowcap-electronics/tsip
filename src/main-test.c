@@ -21,8 +21,6 @@ static sc_error_data sc_error_list1[SC_ERROR_MAIN_COUNT] = {
   {0, 0, "sc_event_post failed"},
 };
 
-static uint8_t comm_channel;
-
 int main(void)
 {
   // Register error module

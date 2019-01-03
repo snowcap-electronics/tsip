@@ -19,8 +19,6 @@
 /* Snowcap framework includes */
 #include "sc_event.h"
 #include "sc_error.h"
-#include "sc_comm.h"
-#include "sc_comm_console.h"
 
 #include <zephyr.h>
 
