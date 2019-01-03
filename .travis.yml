@@ -1,5 +1,7 @@
 language: c
 
+dist: xenial
+
 notifications:
   irc:
     channels:
@@ -12,7 +14,9 @@ branches:
   only:
     - master
 
-before_script:
-  - sudo apt-get install -y --force-yes gcc-arm-none-eabi device-tree-compiler python3-pyelftools
+before_install:
+  - sudo add-apt-repository universe
+  - sudo apt-get update -q
+  - sudo apt-get install gcc-4.8 -y gcc-arm-none-eabi device-tree-compiler python3-pyelftools
 
 script: ./test-compile-all.sh
