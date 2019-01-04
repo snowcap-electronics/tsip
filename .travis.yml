@@ -17,7 +17,8 @@ branches:
 before_install:
   - sudo add-apt-repository universe
   - sudo apt-get update -q
-  - sudo apt-get install gcc-4.8 -y gcc-arm-none-eabi device-tree-compiler python3-pyelftools gperf python3-wheel xz-utils file gcc-multilib make gcc autoconf automake libtool
+  - sudo apt-get install gcc-4.8 -y gcc-arm-none-eabi device-tree-compiler python3-pip python3-setuptools gperf python3-wheel xz-utils file gcc-multilib make gcc autoconf automake libtool
+  - pip3 install --user pyelftools
 
 after_failure:
   - cat build/CMakeFiles/CMakeOutput.log
