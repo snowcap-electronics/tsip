@@ -19,4 +19,8 @@ before_install:
   - sudo apt-get update -q
   - sudo apt-get install gcc-4.8 -y gcc-arm-none-eabi device-tree-compiler python3-pyelftools gperf python3-wheel xz-utils file
 
+  after_failure:
+  - cat build/CMakeFiles/CMakeOutput.log
+  - cat build/CMakeFiles/CMakeError.log
+
 script: ./test-compile-all.sh
