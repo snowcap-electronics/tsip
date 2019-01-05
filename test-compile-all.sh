@@ -14,6 +14,14 @@ do
     IFS=' ' read -r -a params <<< "${project}"
     app="${params[0]}"
     board="${params[1]}"
+    if [ "${1}" == "coverity" ]
+    then
+        if [ "$board" == "native_posix" ]
+        then
+            echo "Skipping non-arm board for Coverity runs: ${board}"
+            continue
+        fi
+    fi
     . tsip-env.sh "${app}" "${board}"
     rm -rf build
     mkdir build
