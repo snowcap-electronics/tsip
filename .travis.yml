@@ -14,12 +14,30 @@ branches:
   only:
     - master
 
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "JajCLlRdYw3awM5Nt5Nuej7qP+4eEJ/U9n14D/kqDCinpEi3OoRyeFWbja9lT6b0a9Cg0hs3fb3dh1iYLuiJ5K9aZToIq/SlnhvaFj1zIQtWBXaEWbpnPN7wpxH1sVYs3VMNKoWLETRHOSMmUFgbQtj8NkBF8/h+HFH+sDTqm0wIljqqVdLa1s+Q5Opx8FvhvGLZMpQMDJ0pk49i/m/ZRN1zfgitAjnDkjhwVVT+9Vl4L5D9l7ZBcEYLvV1rvVk6dOvIAYl5l6V95Ha5WasogDERRrqi/dKy0yU8Mmk4I7bG9sOks011gvjEjaK4My9W2jeKusPizEIWpD5fALxitdXSg4VrR0ajLfsJ6wIUbTB5pFCEVcB3MldhnepZbe9bVbokq2VOCBTRdLzFER3fbo1Uts0VvKHn8ZBuSsvN+QHv8bYlfEUlBWt32o/uLUCnIoK70dwD7FOoMQKoGhVlUc4909Lz5j/vKj05/y6VtL90qgYUDo/lO9W3qhquk4cjiPvsKADO0u+4S34kgxA8Ae9iCD18I4LqDcAkGY44Lm+paDg6PT/mbOphIg+Kj+jEO2+LQIgDOr+Tk/OhQz+KSuolW+SCRnTmDl8yUbnvDgBydC28HLh1ZYhRwdaWq6t8v/eqF/n7s03CiwsDdEPQ3iQ52u6hzt81MdS+pmM84xo="
+
+
+addons:
+  coverity_scan:
+    project:
+      name: "snowcap-electronics/tsip"
+      description: "Zephyr based RTOS multiapp framework"
+    notification_email: tuomas@kulve.fi
+    build_command_prepend: cov-configure --comptype gcc --compiler arm-none-eabi-gcc --template
+    build_command: ./test-compile-all.sh coverity
+    branch_pattern: master
+
 before_install:
   - sudo add-apt-repository universe
   - sudo add-apt-repository -y ppa:team-gcc-arm-embedded/ppa
   - sudo apt-get update -q
   - sudo apt-get install gcc-4.8 -y gcc-arm-embedded device-tree-compiler python3-pip python3-setuptools gperf python3-wheel xz-utils file gcc-multilib make gcc autoconf automake libtool
   - pip3 install --user pyelftools
+  - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 
 after_failure:
   - cat build/CMakeFiles/CMakeOutput.log
