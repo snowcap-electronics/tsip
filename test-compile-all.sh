@@ -7,7 +7,7 @@ PROJECTS=("test native_posix"
 
 export PATH=$(pwd)/zephyr/build/kconfig:$PATH
 export ZEPHYR_TOOLCHAIN_VARIANT=gccarmemb
-export GCCARMEMB_TOOLCHAIN_PATH=/usr
+export GNUARMEMB_TOOLCHAIN_PATH=/usr
 
 for project in "${PROJECTS[@]}"
 do
