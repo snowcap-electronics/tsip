@@ -37,7 +37,6 @@ before_install:
   - sudo apt-get update -q
   - sudo apt-get install gcc-4.8 -y gcc-arm-embedded device-tree-compiler python3-pip python3-setuptools gperf python3-wheel xz-utils file gcc-multilib make gcc autoconf automake libtool
   - pip3 install --user pyelftools
-  - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 
 after_failure:
   - cat build/CMakeFiles/CMakeOutput.log
