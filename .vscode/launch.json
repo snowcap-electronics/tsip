@@ -4,7 +4,18 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-
+        {
+            "cwd": "${workspaceRoot}",
+            "executable": "./build/zephyr/zephyr.elf",
+            "name": "Debug Microcontroller",
+            "request": "launch",
+            "type": "cortex-debug",
+            "configFiles": [
+                "board/st_nucleo_f4.cfg"
+            ],
+            "device": "STM32F411RE",
+            "servertype": "openocd"
+        },
         {
             "name": "(gdb) Launch",
             "type": "cppdbg",
@@ -23,6 +34,6 @@
                     "ignoreFailures": true
                 }
             ]
-        }
+        },
     ]
 }
