@@ -4,9 +4,11 @@
         "kernel.h": "c"
     },
     "files.watcherExclude": {
+        "**/zephyr/**": true,
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
         "**/doc/doxygen**": true
     },
-    "python.linting.pylintEnabled": false
+    "python.linting.pylintEnabled": false,
+    "C_Cpp.dimInactiveRegions": false
 }
