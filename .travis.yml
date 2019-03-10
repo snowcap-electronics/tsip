@@ -37,7 +37,7 @@ before_install:
   - sudo apt-get install gcc-4.8 -y gcc-arm-embedded device-tree-compiler python3-pip python3-setuptools gperf python3-wheel xz-utils file gcc-multilib make gcc autoconf automake libtool
   - pip3 install --upgrade pip
   - pip3 install --user pyelftools
-  - pip3 install --upgrade cmake
+  - pip3 install --user --upgrade cmake
 
 after_failure:
   - cat build/CMakeFiles/CMakeOutput.log
