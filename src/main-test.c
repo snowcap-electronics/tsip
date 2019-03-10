@@ -46,7 +46,7 @@ int main(void)
   // Main thread will loop forever. Event thread will execute callbacks.
   while(1) {
     printk("Sending TESTMAIN from main!\n");
-    if (sc_event_post(testevent_type) == false || true) {
+    if (sc_event_post(testevent_type) == false) {
       sc_error_log(error_module, SC_ERROR_MAIN_EVENT_POST_FAIL);
     }
     k_sleep(10000);
