@@ -19,6 +19,7 @@
 /* Snowcap framework includes */
 #include "sc_event.h"
 #include "sc_error.h"
+#include "sc_sensor.h"
 
 #include <zephyr.h>
 
