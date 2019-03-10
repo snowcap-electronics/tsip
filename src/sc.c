@@ -7,7 +7,10 @@
 #include "sc.h"
 #include <shell/shell.h>
 
-static int sc_shell_cmd_ping(int argc, char *argv[]);
+#ifdef CONFIG_SHELL
+static int sc_shell_cmd_ping(const struct shell *shell, size_t argc, char **argv);
+static int sc_shell_cmd_version(const struct shell *shell, size_t argc, char **argv);
+#endif
 
 bool sc_init(uint32_t subsystems)
 {
@@ -31,29 +34,28 @@ void sc_halt(void)
   while(1) {};
 }
 
-static int sc_shell_cmd_ping(int argc, char *argv[])
+#ifdef CONFIG_SHELL
+static int sc_shell_cmd_ping(const struct shell *shell, size_t argc, char **argv)
 {
   (void)argc;
   (void)argv;
 
-  printk("pong\n");
+  shell_print(shell, "pong");
 
   return 0;
 }
-#define SHELL_CMD_PING "ping"
-SHELL_REGISTER_COMMAND(SHELL_CMD_PING, sc_shell_cmd_ping, "Ping pong");
 
-static int sc_shell_cmd_version(int argc, char *argv[])
+SHELL_CMD_REGISTER(ping, NULL, "Ping pong", sc_shell_cmd_ping);
+
+static int sc_shell_cmd_version(const struct shell *shell, size_t argc, char **argv)
 {
   (void)argc;
   (void)argv;
 
   // TODO: use git hash?
-  printk("0.1\n");
+  shell_print(shell, "0.1");
 
   return 0;
 }
-#define SC_SHELL_CMD_VERSION "version"
-SHELL_REGISTER_COMMAND(SC_SHELL_CMD_VERSION, sc_shell_cmd_version, "Show version number");
-
-
+SHELL_CMD_REGISTER(version, NULL, "Shopw version number", sc_shell_cmd_version);
+#endif
