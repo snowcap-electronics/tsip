@@ -71,7 +71,7 @@ K_THREAD_DEFINE(sc_event_thread, SC_EVENT_THREAD_STACK_SIZE,
 static bool is_initialized = false;
 
 /*
- * Setup a working area with for the event loop thread
+ * Setup a working area for the event loop thread
  */
 void sc_event_loop(void *arg1, void *arg2, void *arg3)
 {
