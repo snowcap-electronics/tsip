@@ -34,10 +34,13 @@ before_install:
   - sudo add-apt-repository universe
   - sudo add-apt-repository -y ppa:team-gcc-arm-embedded/ppa
   - sudo apt-get update -q
-  - sudo apt-get install gcc-4.8 -y gcc-arm-embedded device-tree-compiler python3-pip python3-setuptools gperf python3-wheel xz-utils file gcc-multilib make gcc autoconf automake libtool
+  - sudo apt-get install gcc-4.8 -y gcc-arm-embedded python3-pip python3-setuptools gperf python3-wheel xz-utils file gcc-multilib make gcc autoconf automake libtool wget
   - pip3 install --upgrade pip
   - pip3 install --user pyelftools
   - pip3 install --user --upgrade cmake
+  # Ugly hack to install newer device-tree-compiler
+  - wget -O /tmp/dt.deb $(wget -O - https://packages.ubuntu.com/cosmic/amd64/device-tree-compiler/download|grep _amd64.deb | grep mirrors.kernel.org | cut -f2 -d\")
+  - sudo dpkg -i /tmp/dt.deb
 
 after_failure:
   - cat build/CMakeFiles/CMakeOutput.log
