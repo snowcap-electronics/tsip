@@ -12,7 +12,7 @@ elif [ ! -f tsip-env.sh ]
 then
     echo "Please source this file on the top directory of the tsip source tree."
 else
-    rm prj.conf
+    rm -f prj.conf
     rm -f ${BOARD}.overlay
 
     if [ -f "configs/board-${BOARD}.conf" ]
