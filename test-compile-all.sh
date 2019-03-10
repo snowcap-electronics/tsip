@@ -3,7 +3,8 @@
 set -ex
 
 PROJECTS=("test native_posix"
-          "test nucleo_f411re")
+          "test nucleo_f411re"
+          "sht3x nucleo_f411re")
 
 export PATH=$(pwd)/zephyr/build/kconfig:$PATH
 export ZEPHYR_TOOLCHAIN_VARIANT=gccarmemb
