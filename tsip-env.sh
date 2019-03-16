@@ -62,7 +62,17 @@ else
         echo "WARNING: Failed to find the config file '${CONF_FILE}'"
     fi
 
-    if ! find "${ZEPHYR_BASE}/boards" | grep -q "${BOARD}"
+    BOARD_FOUND=0
+	for b in $(find "${ZEPHYR_BASE}/boards" -type d)
+	do
+        board=$(basename $b)
+		if [ "${board}" == "${BOARD}" ]
+        then
+            BOARD_FOUND=1
+        fi
+    done
+
+    if [ "${BOARD_FOUND}" == "0" ]
     then
         echo "WARNING: Failed to find the board '${BOARD}'"
     fi
