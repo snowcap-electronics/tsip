@@ -49,13 +49,13 @@ int main(void)
   };
 
   // Start measuring SHT3X sensor
-  if (!sc_sensor_add("SHT3XD", channels, ARRAY_SIZE(channels), 4*1000, "sht3x", &sht3x_index)) {
+  if (!sc_sensor_add("SHT3XD", channels, ARRAY_SIZE(channels), 60*1000, "sht3x", &sht3x_index)) {
     //main_halt();
   }
 
   // Main thread will loop forever. Event thread will execute callbacks.
   while(1) {
-    printk("Main thread idling\n");
+    //printk("Main thread idling\n");
     k_sleep(2000);
   }
 
