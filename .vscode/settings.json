@@ -5,6 +5,7 @@
     },
     "files.watcherExclude": {
         "**/zephyr/**": true,
+        "**/build/**": true,
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
         "**/doc/doxygen**": true
