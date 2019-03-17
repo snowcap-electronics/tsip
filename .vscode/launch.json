@@ -7,13 +7,25 @@
         {
             "cwd": "${workspaceRoot}",
             "executable": "./build/zephyr/zephyr.elf",
-            "name": "Debug Microcontroller",
+            "name": "Debug STM32F411RE",
             "request": "launch",
             "type": "cortex-debug",
             "configFiles": [
                 "board/st_nucleo_f4.cfg"
             ],
             "device": "STM32F411RE",
+            "servertype": "openocd"
+        },
+        {
+            "cwd": "${workspaceRoot}",
+            "executable": "./build/zephyr/zephyr.elf",
+            "name": "Debug STM32F405RG",
+            "request": "launch",
+            "type": "cortex-debug",
+            "configFiles": [
+                "board/st_nucleo_f4.cfg"
+            ],
+            "device": "STM32F405RG",
             "servertype": "openocd"
         },
         {
