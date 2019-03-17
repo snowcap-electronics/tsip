@@ -17,7 +17,7 @@
 #endif
 
 #ifndef SC_SENSOR_THREAD_STACK_SIZE
-#define SC_SENSOR_THREAD_STACK_SIZE 512
+#define SC_SENSOR_THREAD_STACK_SIZE 2048
 #endif
 
 typedef struct sc_sensor {
